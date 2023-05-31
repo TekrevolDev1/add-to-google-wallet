@@ -36,11 +36,11 @@ class AddToGoogleWalletButton extends StatelessWidget {
   final VoidCallback? onCanceled;
 
   const AddToGoogleWalletButton({
-    super.key,
-    this.locale,
-    this.onError,
-    this.onSuccess,
-    this.onCanceled,
+    this.locale, this.onError, this.onSuccess, this.onCanceled,
+    // this.locale,
+    // this.onError,
+    // this.onSuccess,
+    // this.onCanceled,
     required this.pass,
   });
 
@@ -49,10 +49,10 @@ class AddToGoogleWalletButton extends StatelessWidget {
         children: [
           FutureBuilder(
             future: _getButtonAssetPath(context),
-            builder: (context, snapshot) {
+            builder: (context, dynamic snapshot) {
               if (snapshot.hasData) {
                 return SvgPicture.asset(
-                  snapshot.data!,
+                  snapshot.data!.toString(),
                   package: 'add_to_google_wallet',
                 );
               }
